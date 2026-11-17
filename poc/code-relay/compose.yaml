@@ -1,0 +1,47 @@
+name: code-relay-poc
+
+services:
+  relay:
+    # paseo-relay built from getpaseo/paseo-relay@3fc41c96c8c63f3a7109e832899cc57d473c4531
+    image: paseo-relay:3fc41c9
+    environment:
+      PASEO_RELAY_HOST: "0.0.0.0"
+      PASEO_RELAY_PORT: "4000"
+    networks: [natchost, cloud]
+
+  userbox:
+    # The user's NAT'd machine: the daemon binds loopback inside the
+    # container and no ports are published, so nothing can dial in. Its only
+    # egress is the daemon's own outbound relay connection.
+    build: ./userbox
+    image: code-relay-userbox:0.8.0
+    environment:
+      PASEO_LISTEN: "127.0.0.1:6767"
+      PASEO_WEB_UI_ENABLED: "false"
+      PASEO_RELAY_ENABLED: "true"
+      PASEO_RELAY_ENDPOINT: "relay:4000"
+      PASEO_RELAY_USE_TLS: "false"
+      PASEO_PASSWORD: "poc-daemon-password"
+      # Keep the daemon idle at startup: no local speech model download, so
+      # the pairing RPC is not racing a model extraction.
+      PASEO_DICTATION_ENABLED: "false"
+      PASEO_VOICE_MODE_ENABLED: "false"
+    volumes:
+      - ./offer:/offer
+      - ${HOME}/.local/share/opencode/auth.json:/mnt/opencode-auth.json:ro
+    networks: [natchost]
+
+  driver:
+    # The chat-server stand-in: @getpaseo/client over the relay, E2EE.
+    build: ./driver
+    image: code-relay-driver:0.8.0
+    init: true
+    volumes:
+      - ./offer:/offer:ro
+      - ./transcript:/transcript
+    networks: [cloud]
+    depends_on: [relay]
+
+networks:
+  natchost: {}
+  cloud: {}

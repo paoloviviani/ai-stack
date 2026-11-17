@@ -1,0 +1,9 @@
+{
+  "name": "code-relay-driver",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@getpaseo/client": "0.8.0",
+    "@getpaseo/protocol": "0.8.0"
+  }
+}

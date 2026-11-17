@@ -1,0 +1,52 @@
+--- identity_registry.py.orig	2026-10-21 16:24:20.690326539 +0200
++++ identity_registry.py	2026-10-21 16:28:33.689945532 +0200
+@@ -183,6 +183,8 @@
+     # settings directly (`apply_env_admin_rules`, stage 5), never this row.
+     has_claim_rule = bool(oidc.admin_claim and oidc.admin_claim_values)
+     is_bundled = oidc.kind == "authelia"
++    # Groups come from the claim unless the bundled IdP is the issuer itself.
++    own_groups = is_bundled and not oidc.groups_from_claim
+     return ProviderRecord(
+         id=uuid.uuid5(uuid.NAMESPACE_URL, f"env-oidc:{oidc.issuer}"),
+         name="default",
+@@ -196,13 +198,13 @@
+         link_by_email=oidc.link_by_email,
+         # Groups mean nothing for the bundled Authelia (§8.3): its users file
+         # carries no group but "users", so the claim is never consulted.
+-        group_sync=GroupSync.NEVER if is_bundled else GroupSync(oidc.group_sync),
++        group_sync=GroupSync.NEVER if own_groups else GroupSync(oidc.group_sync),
+         is_enabled=True,
+         source="environment",
+         internal_base_url=oidc.internal_base_url,
+         logout_url=oidc.logout_url,
+         kind=oidc.kind,
+-        group_source="none" if is_bundled else "claim",
++        group_source="none" if own_groups else "claim",
+         admin_source="claim" if has_claim_rule else "console",
+         admin_claim=oidc.admin_claim if has_claim_rule else "groups",
+         admin_values=tuple(oidc.admin_claim_value_list()) if has_claim_rule else (),
+@@ -541,7 +543,8 @@
+     row.kind = env.kind
+     row.group_sync = env.group_sync
+     if env.kind == "authelia":
+-        row.group_source = "none"
++        # "none" for the bundled IdP's own groups, "claim" behind a broker.
++        row.group_source = env.group_source
+     row.link_by_email = env.link_by_email
+     row.admin_source = env.admin_source
+     row.admin_claim = env.admin_claim
+--- config.py.orig	2026-10-21 16:24:20.687164020 +0200
++++ config.py	2026-10-21 16:24:20.726638697 +0200
+@@ -267,6 +267,12 @@
+     # matters when the first provider row is seeded from here — that row then
+     # gets the users-file sync adapter and the console's user management.
+     kind: str = "generic"
++    # A bundled-kind (authelia) provider normally carries no groups of its own:
++    # they are the console's. With a broker in front of the bundled IdP (Dex)
++    # the issuer is the broker's, other connectors report groups, and those
++    # are read from the claim like any generic issuer's. The bundled kind's
++    # users-file management and break-glass are unaffected.
++    groups_from_claim: bool = False
+ 
+     # Removed as a setting by ADR 0069 and kept only as a tripwire: the field
+     # exists so that a deployment still setting GATEWAY_OIDC__ADMIN_GROUPS gets
