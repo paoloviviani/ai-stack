@@ -18,6 +18,7 @@ Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G
 | C139 | Pystino local document reader caps at 25 MB (`MAX_BYTES`) while Cerea takes 30 MB attachments; also ~3 copies of a 30 MB file in `extractDocument`, no client-side total check against the 100 MB body limit | Open (cap confirmed on main) | Raise to 30 MiB in a Pystino release + kit pin |
 | C148 | Secret manager plus credential injection at egress (write-only per-workspace/user secrets; the cloud-workspace egress proxy injects the real credential). Report `2026-11-18-mistral-secrets-knowledge.md` | Deferred to the owner; not started | Owner decision |
 | C150 [#270](https://github.com/paoloviviani/Cerea/issues/270) | Clone a Git repository when creating a new workspace | Open, no code on main | Schedule |
+| C155 | Parallel tool calls: a turn resumed when the code result arrived while a slow MCP call of the same turn was still pending (2026-11-19 incident). #301 drops the overtaken run's late writes; the turn should wait for all parallel calls before resuming | Open | Design the join, then build |
 
 ## 1. Owner decisions and ideas
 
