@@ -1,6 +1,6 @@
 # Backlog
 
-**State on 2026-11-19: Cerea 0.59.x (v0.59.0 released, v0.59.1 released), Pystino 0.33.4.** Cleaned and aligned with GitHub issues on 2026-11-19: every row checked against `origin/main`, release tags, PR and issue states. Closed rows and their PR or version are in `backlog-archive-2026-11-19.md`; older detail is in `backlog-archive-2026-11-06.md` and `backlog-notes-2026-11-06.md`. IDs are stable. Update this file, don't keep lists in chat. Rows marked "(verify)" were not conclusively checked.
+**State on 2026-11-19 (evening): Cerea 0.60.0 released, Pystino 0.33.5 released.** Cleaned and aligned with GitHub issues on 2026-11-19: every row checked against `origin/main`, release tags, PR and issue states. Closed rows and their PR or version are in `backlog-archive-2026-11-19.md`; older detail is in `backlog-archive-2026-11-06.md` and `backlog-notes-2026-11-06.md`. IDs are stable. Update this file, don't keep lists in chat. Rows marked "(verify)" were not conclusively checked.
 
 Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G = galopin. Every open issue in both repos has a row below.
 
@@ -8,14 +8,11 @@ Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G
 
 | ID | Item | Status | Next step |
 |---|---|---|---|
-| C154 | Chat: drop the "Using tool…" line under the composer (v0.59.1) | PR [#299](https://github.com/paoloviviani/Cerea/pull/299) open | Merge, release 0.59.1 |
 | P31 | Classifier provider allowlist: classifiers may use only models of providers an admin ticks (empty by default), replacing PR #61's "Allow remote classifiers" switch; fail closed for a stored classifier on a provider no longer allowed | Parked on owner go; Pystino PR [#61](https://github.com/paoloviviani/Pystino/pull/61) open | Rework #61 when the owner says go |
 | P32 | Console Privacy "What users may add": a multi-select of detector entity types instead of a free-text comma list (a typo silently allows nothing); confirmed 2026-11-19: still a free-text input on main | Backlog | Build with P31 |
 | P33 | Privacy rule editor: items (1) match all/any and (2) the "Check" badge shipped (0.33.0, #63). Left: (3) read rules' "Redact with" is unclear and overlaps the chat and embedding pipelines | Owner decision on (3) | Relabel (one-way, before storage) or remove |
-| C73 [#113](https://github.com/paoloviviani/Cerea/issues/113) | galopin: a command that carries a local secret's value comes to the user | Queued ("next release"); no commit | Build |
-| C99 | Privacy-withheld files follow-ups (after #193): (a) a vision-refused image is not marked withheld; (b) no backfill for files stored before #193; (c) owner download of a withheld file through a route no tool can reach | Backlog | Schedule (a), then (c) |
+| C99 | Privacy-withheld files follow-ups: (a) vision-refused images withheld and (c) owner one-time download shipped in v0.60.0 (#304). Left: (b) no backfill for files stored before #193 | Backlog | Decide whether (b) is worth a migration |
 | C149 | Standing engine pin bumps: opencode 2.3.2 ([#289](https://github.com/paoloviviani/Cerea/issues/289)), goose 1.60.1 ([#288](https://github.com/paoloviviani/Cerea/issues/288)). Older bump issues (closed as superseded) [#258](https://github.com/paoloviviani/Cerea/issues/258), [#237](https://github.com/paoloviviani/Cerea/issues/237), [#199](https://github.com/paoloviviani/Cerea/issues/199), [#196](https://github.com/paoloviviani/Cerea/issues/196) are superseded by #288 | Pins on main: opencode 2.3.0, goose 1.57.0 | Bump both pins; close the superseded issues with the bump |
-| C139 | Pystino local document reader caps at 25 MB (`MAX_BYTES`) while Cerea takes 30 MB attachments; also ~3 copies of a 30 MB file in `extractDocument`, no client-side total check against the 100 MB body limit | Open (cap confirmed on main) | Raise to 30 MiB in a Pystino release + kit pin |
 | C148 | Secret manager plus credential injection at egress (write-only per-workspace/user secrets; the cloud-workspace egress proxy injects the real credential). Report `2026-11-18-mistral-secrets-knowledge.md` | Deferred to the owner; not started | Owner decision |
 | C150 [#270](https://github.com/paoloviviani/Cerea/issues/270) | Clone a Git repository when creating a new workspace | Open, no code on main | Schedule |
 | C155 | Parallel tool calls: a turn resumed when the code result arrived while a slow MCP call of the same turn was still pending (2026-11-19 incident). #301 drops the overtaken run's late writes; the turn should wait for all parallel calls before resuming | Open | Design the join, then build |
@@ -104,7 +101,7 @@ Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G
 | ID | Title | Status | Next step |
 |---|---|---|---|
 | C93 [#189](https://github.com/paoloviviani/Cerea/issues/189) | Standing reliability issue: flakes and e2e build OOM (heap raised to 6 GB; route.fulfill fixed) | Standing | Keep open as the tracker |
-| C143 | `chat-slides.spec.ts:32` fullscreen exit timeout | Open flake (failed on #246, #254) | Fix at the cause |
+| C143 | `chat-slides.spec.ts:32` fullscreen exit timeout | Test change merged in v0.60.0 (#303: `exitFullscreen()` no longer awaited inside `page.evaluate`); cause inferred, not reproduced. Failed again on #303 (x2) and #305 before it | Watch; if it recurs, look at SlidesView late-granted fullscreen |
 | C125 | `sandbox/exec-image` test_execd timeout test: IndexError on empty daemon output | Open flake (recurred 2026-11-17 in release CI) | Fix the wait-for-daemon-ready in the test |
 | C147 | `code-machine-parity.spec.ts:803` subagent approvals (child.txt) | Open flake (once, on #291) | Fix after release |
 | C112 | `code-machine-terminal.spec.ts:241` workspace "repo" not visible | Not reproduced in 3 runs | Keep artifacts if it recurs |
@@ -140,5 +137,7 @@ Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G
 | P1 follow-ups, C71/C72 and C51 duplicate rows | Old "Design" and "Owner decisions" tables | Duplicates of rows above |
 
 ## 8. Done since 2026-11-06
+
+**v0.60.0 / Pystino 0.33.5 (2026-11-19):** C73 secret-value guard (#303), C99 (a)+(c) withheld-file follow-ups (#304), C139 large attachments + 32 MiB reader (#302, Pystino #72), failed-turn re-attach loop and orphan reaper (#301), connector `$file` references + truncation message + sliced read-back (#305), composer model pill without effort (#306). C154 shipped in v0.59.1 (#299).
 
 About 70 rows plus the releases v0.55.0 to v0.59.0 are listed with their PR or version in `backlog-archive-2026-11-19.md`. Highlights: share links (v0.55.0), prune artifact versions C122 (v0.56.0), artifact-aware history (v0.57.0), Italian, Mistral Vibe, failed-turn fix and any text file (v0.58.0), UI polish step 2 (v0.59.0), self-hosted servers C141 (Pystino 0.33.4, v0.54.1), large content C138, sandboxes C72/C118.
