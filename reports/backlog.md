@@ -1,6 +1,6 @@
 # Backlog
 
-**State on 2026-11-19: Cerea 0.59.x (v0.59.0 released, v0.59.1 in review as PR #299), Pystino 0.33.4.** Cleaned and aligned with GitHub issues on 2026-11-19: every row checked against `origin/main`, release tags, PR and issue states. Closed rows and their PR or version are in `backlog-archive-2026-11-19.md`; older detail is in `backlog-archive-2026-11-06.md` and `backlog-notes-2026-11-06.md`. IDs are stable. Update this file, don't keep lists in chat. Rows marked "(verify)" were not conclusively checked.
+**State on 2026-11-19: Cerea 0.59.x (v0.59.0 released, v0.59.1 released), Pystino 0.33.4.** Cleaned and aligned with GitHub issues on 2026-11-19: every row checked against `origin/main`, release tags, PR and issue states. Closed rows and their PR or version are in `backlog-archive-2026-11-19.md`; older detail is in `backlog-archive-2026-11-06.md` and `backlog-notes-2026-11-06.md`. IDs are stable. Update this file, don't keep lists in chat. Rows marked "(verify)" were not conclusively checked.
 
 Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G = galopin. Every open issue in both repos has a row below.
 
@@ -10,7 +10,7 @@ Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G
 |---|---|---|---|
 | C154 | Chat: drop the "Using tool…" line under the composer (v0.59.1) | PR [#299](https://github.com/paoloviviani/Cerea/pull/299) open | Merge, release 0.59.1 |
 | P31 | Classifier provider allowlist: classifiers may use only models of providers an admin ticks (empty by default), replacing PR #61's "Allow remote classifiers" switch; fail closed for a stored classifier on a provider no longer allowed | Parked on owner go; Pystino PR [#61](https://github.com/paoloviviani/Pystino/pull/61) open | Rework #61 when the owner says go |
-| P32 | Console Privacy "What users may add": a multi-select of detector entity types instead of a free-text comma list (a typo silently allows nothing) (verify: not seen on main) | Backlog | Build with P31 |
+| P32 | Console Privacy "What users may add": a multi-select of detector entity types instead of a free-text comma list (a typo silently allows nothing); confirmed 2026-11-19: still a free-text input on main | Backlog | Build with P31 |
 | P33 | Privacy rule editor: items (1) match all/any and (2) the "Check" badge shipped (0.33.0, #63). Left: (3) read rules' "Redact with" is unclear and overlaps the chat and embedding pipelines | Owner decision on (3) | Relabel (one-way, before storage) or remove |
 | C73 [#113](https://github.com/paoloviviani/Cerea/issues/113) | galopin: a command that carries a local secret's value comes to the user | Queued ("next release"); no commit | Build |
 | C99 | Privacy-withheld files follow-ups (after #193): (a) a vision-refused image is not marked withheld; (b) no backfill for files stored before #193; (c) owner download of a withheld file through a route no tool can reach | Backlog | Schedule (a), then (c) |
@@ -66,7 +66,7 @@ Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G
 | C50 | mrl-truncate wording ("cut to fit", source cite) | Still unchanged | Batch with the next knowledge change |
 | C61 [#56](https://github.com/paoloviviani/Cerea/issues/56) | Assistant creates and fills knowledge bases (`kb_create` absent) | Open | Owner to schedule |
 | C75 [#115](https://github.com/paoloviviani/Cerea/issues/115) | Provenance note on repeated text | Open, "later" | |
-| C96 [#190](https://github.com/paoloviviani/Cerea/issues/190) | Admin Knowledge screen does not poll after the async reindex (specs fixed in #229) | Open (verify issue state) | Server needs a pending count |
+| C96 [#190](https://github.com/paoloviviani/Cerea/issues/190) | Admin Knowledge screen does not poll after the async reindex (specs fixed in #229) | Issue #190 closed; polling gap still open | Server needs a pending count |
 | C126 | Project knowledge passages ride the system prompt and break prompt caching | Open (verify after v0.57.0) | Move to the uncached tail |
 | C140 | History budget should count several mid-size turns that together pass the window | Open (verify after v0.57.0) | Check, then close or build |
 | C81 | ADR 0108 follow-ups: pi connector extension; per-turn cost after reload (`x-pystino-turn` not on main); real-opencode e2e for `connector_*`; connector picker at session creation | Open | Schedule |
