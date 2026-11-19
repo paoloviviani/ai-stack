@@ -1,6 +1,6 @@
 # ADR 0119: Large content reaches the model as a file it reads with code
 
-- Status: **accepted** (owner 2026-11-15); building for v0.54.0 (C138). Supersedes this ADR's first draft (pre-flight card plus coded chunking), which was dropped.
+- Status: **accepted** (owner 2026-11-15); shipped in Cerea v0.54.0 (C138): large text reaches the model as a file it reads with code. Supersedes this ADR's first draft (pre-flight card plus coded chunking), which was dropped.
 
 ## Context
 

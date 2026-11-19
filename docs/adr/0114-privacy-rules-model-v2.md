@@ -1,6 +1,6 @@
 # ADR 0114: Privacy rules model v2 (two kinds, rules "When policies + conditions -> mode", claim order)
 
-- Status: accepted 2026-11-10 (owner approved the design); built on Pystino branch `feat/rules-model-v2`, migration 0086
+- Status: accepted 2026-11-10 (owner approved the design); shipped in Pystino 0.33.0 (migration 0086)
 - Supersedes: ADR 0113, section 0 (the first-match pipeline with a fixed last rule, the ladder with `pass`/`refuse`,
   `redact with`, `observe_only`) and the "strictest mode wins" fold of ADR 0038 as the way hiding is combined. The rest of
   0113 stands: statelessness, scope, the conditions' meaning, the fail-closed rule, the extractor models (0085).
