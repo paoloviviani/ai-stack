@@ -1,6 +1,6 @@
 # Backlog
 
-**State on 2026-11-19 (evening): Cerea 0.60.0 released, Pystino 0.33.5 released.** Cleaned and aligned with GitHub issues on 2026-11-19: every row checked against `origin/main`, release tags, PR and issue states. Closed rows and their PR or version are in `backlog-archive-2026-11-19.md`; older detail is in `backlog-archive-2026-11-06.md` and `backlog-notes-2026-11-06.md`. IDs are stable. Update this file, don't keep lists in chat. Rows marked "(verify)" were not conclusively checked.
+**State on 2026-11-20: Cerea 0.60.4 released and live, Pystino 0.33.5.** Cleaned and aligned with GitHub issues on 2026-11-19: every row checked against `origin/main`, release tags, PR and issue states. Closed rows and their PR or version are in `backlog-archive-2026-11-19.md`; older detail is in `backlog-archive-2026-11-06.md` and `backlog-notes-2026-11-06.md`. IDs are stable. Update this file, don't keep lists in chat. Rows marked "(verify)" were not conclusively checked.
 
 Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G = galopin. Every open issue in both repos has a row below.
 
@@ -101,14 +101,12 @@ Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G
 | ID | Title | Status | Next step |
 |---|---|---|---|
 | C93 [#189](https://github.com/paoloviviani/Cerea/issues/189) | Standing reliability issue: flakes and e2e build OOM (heap raised to 6 GB; route.fulfill fixed) | Standing | Keep open as the tracker |
-| C143 | `chat-slides.spec.ts:32` fullscreen exit timeout | Test change merged in v0.60.0 (#303: `exitFullscreen()` no longer awaited inside `page.evaluate`); cause inferred, not reproduced. Failed again on #303 (x2) and #305 before it | Watch; if it recurs, look at SlidesView late-granted fullscreen |
 | C125 | `sandbox/exec-image` test_execd timeout test: IndexError on empty daemon output | Open flake (recurred 2026-11-17 in release CI) | Fix the wait-for-daemon-ready in the test |
 | C147 | `code-machine-parity.spec.ts:803` subagent approvals (child.txt) | Open flake (once, on #291) | Fix after release |
 | C112 | `code-machine-terminal.spec.ts:241` workspace "repo" not visible | Not reproduced in 3 runs | Keep artifacts if it recurs |
-| C114 | `chat-agent-sessions` "Allow once" card; `chat-slides:100` leave-presenting | Not reproduced | Keep artifacts if it recurs |
+| C114 | `chat-agent-sessions` "Allow once" card flake (the `chat-slides:100` half was fixed with C143 in v0.60.3) | Not reproduced | Keep artifacts if it recurs |
 | C115 | `chat-turn-info.spec.ts:54` grey dot panel not found | Seen once (verify) | Reproduce ≤3 times |
-| C124 | `code-transcript-paging.spec.ts` flake; the notes-count mount was moved in #236 (parked) | Open (verify) | Find the cause |
-| C66 | `code-machine-parity` timeouts (also C78: a second test machine's opencode exits 1) | Recurring in November (verify) | Capture opencode stderr; per-machine cache |
+| C66 | `code-machine-parity` timeouts (also C78: a second test machine's opencode exits 1). The retry/reload case was a real galopin resync bug, fixed in v0.60.3/v0.60.4 (#317, #320) | Watch | Capture opencode stderr if it recurs |
 | C129 | Client tests leak the viewport (`SettingsShell`, `AgentHeaderRow`, `InstructionsSection`); `PairDeviceDialog` fails locally when the vitest UI writes localStorage | Open | Restore in `afterAll` or shared setup |
 | C37 [#42](https://github.com/paoloviviani/Cerea/issues/42), C43, C45 / C57 | CodeNavTree, ChatInput cascade submenu, ToolUpdate thumbnail flakes | No recurrence seen | Fix at the cause if they recur |
 | C32 [#32](https://github.com/paoloviviani/Cerea/issues/32) | Client harness noise (`wrapDynamicImport`) | Parked | |
@@ -116,7 +114,6 @@ Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G
 | C56 | Pin `listKnowledgeFiles` URLs: the fifth case in `attachmentMountBase.svelte.spec.ts` | Not verified | Check, add the case |
 | C68 | V8 start-up crash in CI | Mitigated (retry on exit 133) | Watch |
 | C69 | `chat-artifact-table.spec.ts:26` partial artifact on CSV download | Cause unknown (verify) | Wait for another run |
-| C153 | galopin `opencode` workflow: `TestPassthroughP3CeilingWinsAndAlwaysBecomesOnce` failed once on main | (verify) | Check against the "Always allow over ask limit" change |
 | C19 [#36](https://github.com/paoloviviani/Cerea/issues/36) | Test coverage: WebKit and real phones | Parked | |
 | C22 [#34](https://github.com/paoloviviani/Cerea/issues/34) | Split the largest modules (forwarder, `AgentView.svelte`, `dispatch.go`) | Parked | |
 
@@ -137,6 +134,8 @@ Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G
 | P1 follow-ups, C71/C72 and C51 duplicate rows | Old "Design" and "Owner decisions" tables | Duplicates of rows above |
 
 ## 8. Done since 2026-11-06
+
+**v0.60.1 to v0.60.4 (2026-11-19/20):** connector file references made unambiguous with sent-file notes (#308); phone composer keeps the box on screen with many attachments (#310); vision: EXIF-upright photos, 2048 px images, `view_image` tool, request-wide image budget (#311); skeleton placeholders and all-at-once loading (#312); message image thumbnails with group reveal (#316); galopin resync no longer drops a running turn's text, per-part merge, browser text correction, tombstones, serialized resyncs (#317, #320); flakes fixed at the cause: C143 slides fullscreen (#314), parity retry-reload (#314/#317), C124 transcript paging (#317), galopin link harness and permission-floor test (#315, with `checkFloor` hardening), knowledge retry spec (#318). C153: test renamed, no recurrence found; closed.
 
 **v0.60.0 / Pystino 0.33.5 (2026-11-19):** C73 secret-value guard (#303), C99 (a)+(c) withheld-file follow-ups (#304), C139 large attachments + 32 MiB reader (#302, Pystino #72), failed-turn re-attach loop and orphan reaper (#301), connector `$file` references + truncation message + sliced read-back (#305), composer model pill without effort (#306). C154 shipped in v0.59.1 (#299).
 
