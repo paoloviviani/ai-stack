@@ -121,7 +121,7 @@ The card is attached to the **caller's session** (that is where the model waits)
 - target: computer, workspace, session title and mode and status (send, read) or workspace (spawn);
 - tool: send, read or spawn;
 - send: the first 600 characters of the text with "show all" up to the full 8 KiB; hop number;
-- spawn: workspace, the full prompt, "starts on Ask", and the engine and mode it will use (section 8).
+- spawn: workspace, the full prompt, "starts on Ask", and the engine and mode it will use (section 7).
 
 `coord.resolve` runs before the card so the owner sees live, Cerea-sourced names. If it fails, the call fails with the error table above and no card is raised.
 
