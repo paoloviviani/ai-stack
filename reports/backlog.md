@@ -21,7 +21,7 @@ Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G
 
 | ID | Item | Status |
 |---|---|---|
-| C152 [#281](https://github.com/paoloviviani/Cerea/issues/281) | Relayed coordination: agents talking to sessions on other computers through Cerea | Open, owner's decision |
+| C152 [#281](https://github.com/paoloviviani/Cerea/issues/281) | Relayed coordination: agents talking to sessions on other computers through Cerea | Owner decided 2026-11-20: on by default with a per-user switch; cross-computer `session_spawn` allowed, always behind a card; queued after v0.60.5 |
 | C116 [#278](https://github.com/paoloviviani/Cerea/issues/278) | Cloud workspaces: hosted galopin sandboxes (ADR 0115 class P): own switch `SANDBOX_MACHINES_ENABLED` (refused today), egress proxy, persistent volume, idle stop, OpenShell evaluation first | Open design, owner's decision; not started |
 | C151 [#290](https://github.com/paoloviviani/Cerea/issues/290) | WYSIWYG slides editor: fork Small Reveal into the slides artifact | Open, owner's decision |
 | C80 | Per-workspace switch for a project's own opencode setup / AGENTS.md (today an enroll flag) | Owner decision |
