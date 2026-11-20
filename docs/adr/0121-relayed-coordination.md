@@ -32,8 +32,8 @@ caller galopin --call (coord.*)--> Cerea --req (coord.*)--> target galopin
    |  answered by the owner via Cerea -+
 ```
 
-- The **card is raised by the caller's galopin**, as every galopin approval is today (`agentTools.approve`). It appears on the **calling session** wherever that session is shown: the /code agent view, the chat's `ToolApprovalCard`, and as a push notification (`src/lib/server/push/watch.ts`, `permission.asked`). Nothing new is built for showing it; only its content and who may answer it change (section 5).
-- **Cerea never trusts the caller's computer for facts about the target or for "an approval happened".** It re-resolves labels itself and demands a one-shot approval ticket (section 6).
+- The **card is raised by the caller's galopin**, as every galopin approval is today (`agentTools.approve`). It appears on the **calling session** wherever that session is shown: the /code agent view, the chat's `ToolApprovalCard`, and as a push notification (`src/lib/server/push/watch.ts`, `permission.asked`). Nothing new is built for showing it; only its content and who may answer it change (section 4).
+- **Cerea never trusts the caller's computer for facts about the target or for "an approval happened".** It re-resolves labels itself and demands a one-shot approval ticket (section 5).
 - The **target's galopin delivers** with a fixed template it owns, so the peer label cannot be omitted or forged by Cerea's UI routes or by the caller.
 
 ### 2. Protocol additions
@@ -73,9 +73,9 @@ Error codes stay the existing set (`invalid`, `forbidden`, `not_found`, `limit`,
 | op | args | target behaviour |
 |---|---|---|
 | `coord.list` | `{}` | top-level sessions of all its workspaces, as `session_list` builds them without the tree notes; plus `workspaces` on request |
-| `coord.read` | `{sessionId, last?}` | exactly `session_read`'s read (limits: `readDefaultLast` 10, `readMaxLast` 50, `readMessageCap` 4 KiB, `readTotalCap` 32 KiB), output wrapped in a header naming it as data from another computer (section 7) |
-| `coord.send` | `{sessionId, text, hop, from, relayId}` | stamps `SentBy` and the preface (section 7), then `back.Prompt`; refuses a subagent or an archived session; no card (the card was the caller's) |
-| `coord.spawn` | `{workspaceId, prompt, title?, mode?, hop, from, relayId}` | creates a session in that workspace (section 8), then as `coord.send` |
+| `coord.read` | `{sessionId, last?}` | exactly `session_read`'s read (limits: `readDefaultLast` 10, `readMaxLast` 50, `readMessageCap` 4 KiB, `readTotalCap` 32 KiB), output wrapped in a header naming it as data from another computer (section 6) |
+| `coord.send` | `{sessionId, text, hop, from, relayId}` | stamps `SentBy` and the preface (section 6), then `back.Prompt`; refuses a subagent or an archived session; no card (the card was the caller's) |
+| `coord.spawn` | `{workspaceId, prompt, title?, mode?, hop, from, relayId}` | creates a session in that workspace (section 7), then as `coord.send` |
 
 `from = {computerId, computer, workspaceId, workspace, sessionId, title}` is **built by Cerea** from its own records (device name, `workspace.list` and `session.get` on the caller's link), never copied from galopin's `call` frame. `relayId` is a Cerea-minted id for the audit join. Sessions are addressed on the wire as `{computerId, sessionId}` because session ids are opencode-local and can collide between computers.
 
@@ -94,7 +94,7 @@ Order of checks in Cerea's `handleCoordCall` (new `src/lib/server/code/machineCo
 4. **Target live and capable.** `isMachineOnline`, hello capability `relayedCoordination`, policy not denied.
 5. **Size and shape** (`zod`): `text`/`prompt` at most 8 KiB (`maxToolText`), non-blank; `hop` an integer 1 to 3.
 6. **Rate** (section 10).
-7. **Approval ticket** for `send`, `read`, `spawn` (section 6).
+7. **Approval ticket** for `send`, `read`, `spawn` (section 5).
 8. **Resolve** the session or workspace on the target live (`session.get`; a subagent is `not_found`; `workspace.list`).
 9. **Deliver** (`coord.*` request, 20 s bound), **audit**, answer.
 
@@ -158,7 +158,7 @@ This binds the approved content to the delivered content (a card for text A cann
 - **Engine and model.** The target's default backend (`opencode`) and its default model; the caller cannot name either (a model name is not meaningful across computers and `allow-free-models` is per machine). `mode` is optional `plan` or `build` (the agent, not the permission word), default `build`; it is shown on the card.
 - **Permission word: always Ask.** The new session starts on **Ask** (no `autoClasses`), whatever the caller's word, and the target machine's ceiling (`policy.permission.max`) applies on top. A spawner on Allow or Auto does **not** pass its word across computers (the local inheritance rule, "a spawned session inherits its spawner's word", is the local case only). The owner raises it on the target if wanted. Plan callers cannot spawn at all.
 - **Not a delegate.** Report-back (ADR 0099) is local. A remote spawn is fire-and-forget (`report` is forced false and the preface says so); the spawner learns of the result by `session_read` of the remote session (a card each time) or by the spawned session doing `session_send` back (a card on its own side).
-- **Marker and depth.** The session carries `SpawnedBy{computerId, sessionId, hop}` so the UI links it and a later spawn from it counts depth: `maxSpawnDepth` (2) is evaluated as `hop`, below.
+- **Marker and depth.** The session carries `SpawnedBy{computerId, sessionId, hop}` so the UI links it and a later spawn from it counts depth: `maxSpawnDepth` (2) is evaluated as `hop`, section 8.
 - **Limits.** Per spawn root on the caller's galopin the existing counters count remote spawns too (6 attempts per 10 minutes, `spawnsPerWindow`; 3 live, `maxLivePerRoot`); Cerea adds its own (section 10). The title is prefixed `[from <computer>]` by the target.
 
 ### 8. Hops across computers
