@@ -21,7 +21,6 @@ Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G
 
 | ID | Item | Status |
 |---|---|---|
-| C152 [#281](https://github.com/paoloviviani/Cerea/issues/281) | Relayed coordination: agents talking to sessions on other computers through Cerea | Owner decided 2026-11-20: on by default with a per-user switch; cross-computer `session_spawn` allowed, always behind a card; queued after v0.60.5 |
 | C116 [#278](https://github.com/paoloviviani/Cerea/issues/278) | Cloud workspaces: hosted galopin sandboxes (ADR 0115 class P): own switch `SANDBOX_MACHINES_ENABLED` (refused today), egress proxy, persistent volume, idle stop, OpenShell evaluation first | Open design, owner's decision; not started |
 | C151 [#290](https://github.com/paoloviviani/Cerea/issues/290) | WYSIWYG slides editor: fork Small Reveal into the slides artifact | Open, owner's decision |
 | C80 | Per-workspace switch for a project's own opencode setup / AGENTS.md (today an enroll flag) | Owner decision |
@@ -134,6 +133,8 @@ Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G
 | P1 follow-ups, C71/C72 and C51 duplicate rows | Old "Design" and "Owner decisions" tables | Duplicates of rows above |
 
 ## 8. Done since 2026-11-06
+
+**2026-11-21:** C152 relayed coordination across a user's computers (ADR 0121, Cerea #331, ships in v0.61.0); C155 parallel tool-call join (#323, v0.60.5); P32/P33 (Pystino #73, 0.33.6); audio Opus/M4A (#324/#325); placeholders second pass (#327); mobile terminal copy (#330).
 
 **v0.60.1 to v0.60.4 (2026-11-19/20):** connector file references made unambiguous with sent-file notes (#308); phone composer keeps the box on screen with many attachments (#310); vision: EXIF-upright photos, 2048 px images, `view_image` tool, request-wide image budget (#311); skeleton placeholders and all-at-once loading (#312); message image thumbnails with group reveal (#316); galopin resync no longer drops a running turn's text, per-part merge, browser text correction, tombstones, serialized resyncs (#317, #320); flakes fixed at the cause: C143 slides fullscreen (#314), parity retry-reload (#314/#317), C124 transcript paging (#317), galopin link harness and permission-floor test (#315, with `checkFloor` hardening), knowledge retry spec (#318). C153: test renamed, no recurrence found; closed.
 

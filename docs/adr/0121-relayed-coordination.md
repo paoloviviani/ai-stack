@@ -1,6 +1,6 @@
 # ADR 0121: Relayed coordination across the owner's computers
 
-- Status: **proposed** (design for Cerea issue #281; owner decisions of 2026-11-20 and 2026-11-21 included; Opus review applied; not built).
+- Status: **accepted** (2026-11-21; built in Cerea PR #331; design for Cerea issue #281 with owner decisions of 2026-11-20 and 2026-11-21; Opus design and implementation reviews applied).
 - Builds on: ADR 0097 (machine ceiling, Plan · Ask · Allow), ADR 0099 (delegate report-back), ADR 0106 (chat drives agents), ADR 0107 (decision function), `agent/PROTOCOL.md` §5 (machine calls), §6 ("Agent tools").
 
 ## Context
