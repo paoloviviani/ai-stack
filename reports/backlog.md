@@ -9,13 +9,10 @@ Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G
 | ID | Item | Status | Next step |
 |---|---|---|---|
 | P31 | Classifier provider allowlist: classifiers may use only models of providers an admin ticks (empty by default), replacing PR #61's "Allow remote classifiers" switch; fail closed for a stored classifier on a provider no longer allowed | Parked on owner go; Pystino PR [#61](https://github.com/paoloviviani/Pystino/pull/61) open | Rework #61 when the owner says go |
-| P32 | Console Privacy "What users may add": a multi-select of detector entity types instead of a free-text comma list (a typo silently allows nothing); confirmed 2026-11-19: still a free-text input on main | Backlog | Build with P31 |
-| P33 | Privacy rule editor: items (1) match all/any and (2) the "Check" badge shipped (0.33.0, #63). Left: (3) read rules' "Redact with" is unclear and overlaps the chat and embedding pipelines | Owner decision on (3) | Relabel (one-way, before storage) or remove |
 | C99 | Privacy-withheld files follow-ups: (a) vision-refused images withheld and (c) owner one-time download shipped in v0.60.0 (#304). Left: (b) no backfill for files stored before #193 | Backlog | Decide whether (b) is worth a migration |
 | C149 | Standing engine pin bumps: opencode 2.3.2 ([#289](https://github.com/paoloviviani/Cerea/issues/289)), goose 1.60.1 ([#288](https://github.com/paoloviviani/Cerea/issues/288)). Older bump issues (closed as superseded) [#258](https://github.com/paoloviviani/Cerea/issues/258), [#237](https://github.com/paoloviviani/Cerea/issues/237), [#199](https://github.com/paoloviviani/Cerea/issues/199), [#196](https://github.com/paoloviviani/Cerea/issues/196) are superseded by #288 | Pins on main: opencode 2.3.0, goose 1.57.0 | Bump both pins; close the superseded issues with the bump |
 | C148 | Secret manager plus credential injection at egress (write-only per-workspace/user secrets; the cloud-workspace egress proxy injects the real credential). Report `2026-11-18-mistral-secrets-knowledge.md` | Deferred to the owner; not started | Owner decision |
 | C150 [#270](https://github.com/paoloviviani/Cerea/issues/270) | Clone a Git repository when creating a new workspace | Open, no code on main | Schedule |
-| C155 | Parallel tool calls: a turn resumed when the code result arrived while a slow MCP call of the same turn was still pending (2026-11-19 incident). #301 drops the overtaken run's late writes; the turn should wait for all parallel calls before resuming | Open | Design the join, then build |
 
 ## 1. Owner decisions and ideas
 
