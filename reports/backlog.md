@@ -55,7 +55,7 @@ Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G
 
 | ID | Title | Status | Next step |
 |---|---|---|---|
-| C156 | Chat: let the client propose message ids (server validates v4 + unique in the conversation) so the optimistic-id swap after each turn disappears; removes the class of bugs behind the send-after-turn 500 (#335) for Stop/Retry/Continue/failed-sync paths too | Proposal (Opus review of #335) | Design, then build |
+| C156 | Chat: let the client propose message ids (server validates v4 + unique in the conversation) so the optimistic-id swap after each turn disappears; removes the class of bugs behind the send-after-turn 500 (#335) for Stop/Retry/Continue/failed-sync paths too | Agreed by owner 2026-11-21 | Build after v0.61.1 |
 | C36 [#41](https://github.com/paoloviviani/Cerea/issues/41) | Composer draft edge cases | Partly done (#227); open: saved-then-502 duplicate | Needs a reconciliation design |
 | C39 [#43](https://github.com/paoloviviani/Cerea/issues/43) | Pill leftovers | Partly done (#227); open: long-label ellipsis on PILL, 390 px / 130% font test | Small |
 | C50 | mrl-truncate wording ("cut to fit", source cite) | Still unchanged | Batch with the next knowledge change |
@@ -118,6 +118,7 @@ Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G
 
 | ID | Item | Reason |
 |---|---|---|
+| Pystino as the model provider for Hermes Agent / OpenClaw (docs + compatibility check) | Declined by owner 2026-11-21 | Not pursued |
 | C26 | Move-to-project on the open chat page | Dropped 2026-10-25 |
 | C74 | Workspace config that runs code on open | Owner, 2026-11-06 |
 | P19 | Redaction allow-list combine | The first policy's list is the design (ADR 0038) |
