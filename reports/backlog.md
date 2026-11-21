@@ -42,6 +42,8 @@ Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G
 
 | ID | Title | Status | Next step |
 |---|---|---|---|
+| P34 | Pystino `/metrics` (Prometheus): in-flight requests, active users, requests/latency/TTFT/errors/tokens/cost by provider and model, quota refusals, privacy actions, health; off by default, token-protected | Agreed by owner 2026-11-21; in progress | Build |
+| P35 | Quotas per provider and model (filter on existing quota rules; refuse when reached) | Agreed by owner 2026-11-21; in progress | Build |
 | P2 [#3](https://github.com/paoloviviani/Pystino/issues/3) | Decision models as a routing selection (only the metered kind shipped) | Open | Build on P1 or park |
 | P3 [#4](https://github.com/paoloviviani/Pystino/issues/4) | vLLM semantic-router spike | Open, no code | Long-term |
 | P8 [#8](https://github.com/paoloviviani/Pystino/issues/8) | Multi-tenancy (notes `2026-10-17-multi-tenancy-notes.md`) | Idea, no code | Owner to schedule |
@@ -69,7 +71,7 @@ Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G
 | C40 [#39](https://github.com/paoloviviani/Cerea/issues/39) | PDF forms step 3 (`look_doc` shipped) | Open | Schedule |
 | C12 [#18](https://github.com/paoloviviani/Cerea/issues/18) | Euro-Office backend | Long-term | |
 | C17 [#28](https://github.com/paoloviviani/Cerea/issues/28) | Open Design / CoDesign integration | Spike not done | |
-| C71 [#50](https://github.com/paoloviviani/Cerea/issues/50) | OpenTelemetry / observability across the stack | No OTel yet | Needs a pipeline in the kit first |
+| C71 [#50](https://github.com/paoloviviani/Cerea/issues/50) | OpenTelemetry tracing across Cerea, Pystino and galopin | Agreed by owner 2026-11-21 (after the Pystino /metrics endpoint P34) | Design, then build |
 | C46 | OSM maps skill caveat | Optional | |
 
 ## 4. Agents and galopin
