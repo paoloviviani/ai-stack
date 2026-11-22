@@ -139,6 +139,8 @@ Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G
 
 **2026-11-21 (evening):** C156 client-proposed message ids (#338, v0.61.2; also fixes reply panels closing by themselves and the C115 turn-info flake); send-after-turn 500 fixed (#335, v0.61.1).
 
+**2026-11-22 (late):** Cerea v0.62.1 released and on the live stack: new-chat composer back at the bottom, phone logo fix (#344), links that point nowhere render as plain text (#346). C156 test flake found (test-only: settle() returned before the turn's final save), fix in #348. C159 Upgrade button (#345) reviewed twice, waiting on CI after #348.
+
 **2026-11-22:** P35 quotas per provider or model (Pystino #74, with a MissingGreenlet fix for routed aliases #76) and P34 `/metrics` (#75) merged; the Cerea kit refuses `/metrics` at the proxy (#342). Released in Pystino 0.34.0 (live checks green) and Cerea v0.62.0 (pins Pystino 0.34.0, ships C157); live stack still down for the weekend. C157 terminal Select text / Copy moved out of the output: bottom bar on desktop, keys panel on a phone (#341, on main, ships in the next release); Cerea v0.61.2 released.
 
 **2026-11-21:** C152 relayed coordination across a user's computers (ADR 0121, Cerea #331, ships in v0.61.0); C155 parallel tool-call join (#323, v0.60.5); P32/P33 (Pystino #73, 0.33.6); audio Opus/M4A (#324/#325); placeholders second pass (#327); mobile terminal copy (#330).
