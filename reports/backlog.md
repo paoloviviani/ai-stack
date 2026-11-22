@@ -12,7 +12,6 @@ Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G
 | C99 | Privacy-withheld files follow-ups: (a) vision-refused images withheld and (c) owner one-time download shipped in v0.60.0 (#304). Left: (b) no backfill for files stored before #193 | Backlog | Decide whether (b) is worth a migration |
 | C149 | Standing engine pin bumps: opencode 2.3.2 ([#289](https://github.com/paoloviviani/Cerea/issues/289)), goose 1.60.1 ([#288](https://github.com/paoloviviani/Cerea/issues/288)). Older bump issues (closed as superseded) [#258](https://github.com/paoloviviani/Cerea/issues/258), [#237](https://github.com/paoloviviani/Cerea/issues/237), [#199](https://github.com/paoloviviani/Cerea/issues/199), [#196](https://github.com/paoloviviani/Cerea/issues/196) are superseded by #288 | Pins on main: opencode 2.3.0, goose 1.57.0 | Bump both pins; close the superseded issues with the bump |
 | C148 | Secret manager plus credential injection at egress (write-only per-workspace/user secrets; the cloud-workspace egress proxy injects the real credential). Report `2026-11-18-mistral-secrets-knowledge.md` | Deferred to the owner; not started | Owner decision |
-| C157 [#340](https://github.com/paoloviviani/Cerea/issues/340) | Terminal: the floating Select text / Copy buttons cover the output. Move them to a bottom bar on desktop (with a Shift/Option+drag hint) and into the special-keys panel on a phone | Owner request 2026-11-22; worker started | Review and merge |
 | C150 [#270](https://github.com/paoloviviani/Cerea/issues/270) | Clone a Git repository when creating a new workspace | Open, no code on main | Schedule |
 
 ## 1. Owner decisions and ideas
@@ -136,6 +135,8 @@ Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G
 ## 8. Done since 2026-11-06
 
 **2026-11-21 (evening):** C156 client-proposed message ids (#338, v0.61.2; also fixes reply panels closing by themselves and the C115 turn-info flake); send-after-turn 500 fixed (#335, v0.61.1).
+
+**2026-11-22:** C157 terminal Select text / Copy moved out of the output: bottom bar on desktop, keys panel on a phone (#341, on main, ships in the next release); Cerea v0.61.2 released.
 
 **2026-11-21:** C152 relayed coordination across a user's computers (ADR 0121, Cerea #331, ships in v0.61.0); C155 parallel tool-call join (#323, v0.60.5); P32/P33 (Pystino #73, 0.33.6); audio Opus/M4A (#324/#325); placeholders second pass (#327); mobile terminal copy (#330).
 
