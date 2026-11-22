@@ -19,6 +19,7 @@ Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G
 | ID | Item | Status |
 |---|---|---|
 | C116 [#278](https://github.com/paoloviviani/Cerea/issues/278) | Cloud workspaces: hosted galopin sandboxes (ADR 0115 class P): own switch `SANDBOX_MACHINES_ENABLED` (refused today), egress proxy, persistent volume, idle stop, OpenShell evaluation first | Open design, owner's decision; not started |
+| P36 | Vision chat model as an OCR reader on `/v1/ocr`: admin marks an image-capable chat model usable for OCR; the extractor draws page images, the gateway transcribes each page with a fixed prompt (temperature 0) into `pages[]`; text-layer pages and Office files stay on markitdown (recommended) or every page goes to the model; per-model page concurrency so chat keeps the GPU; token billing; privacy rules treat it as a reader. Drawbacks: invented or "corrected" text, slower than RapidOCR, output-token limits per page. About 2–3 days | Parked by owner 2026-11-22; open questions: go, and scanned-only vs all pages |
 | C151 [#290](https://github.com/paoloviviani/Cerea/issues/290) | WYSIWYG slides editor: fork Small Reveal into the slides artifact | Open, owner's decision |
 | C80 | Per-workspace switch for a project's own opencode setup / AGENTS.md (today an enroll flag) | Owner decision |
 | C79 | Session sharing: `galopin attach`, goose shared history (report `2026-11-06-session-sharing-goose-opencode.md`) | Owner thinking |
