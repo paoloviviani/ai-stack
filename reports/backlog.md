@@ -42,8 +42,6 @@ Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G
 
 | ID | Title | Status | Next step |
 |---|---|---|---|
-| P34 | Pystino `/metrics` (Prometheus): in-flight requests, active users, requests/latency/TTFT/errors/tokens/cost by provider and model, quota refusals, privacy actions, health; off by default, token-protected | Agreed by owner 2026-11-21; in progress | Build |
-| P35 | Quotas per provider and model (filter on existing quota rules; refuse when reached) | Agreed by owner 2026-11-21; in progress | Build |
 | P2 [#3](https://github.com/paoloviviani/Pystino/issues/3) | Decision models as a routing selection (only the metered kind shipped) | Open | Build on P1 or park |
 | P3 [#4](https://github.com/paoloviviani/Pystino/issues/4) | vLLM semantic-router spike | Open, no code | Long-term |
 | P8 [#8](https://github.com/paoloviviani/Pystino/issues/8) | Multi-tenancy (notes `2026-10-17-multi-tenancy-notes.md`) | Idea, no code | Owner to schedule |
@@ -136,7 +134,7 @@ Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G
 
 **2026-11-21 (evening):** C156 client-proposed message ids (#338, v0.61.2; also fixes reply panels closing by themselves and the C115 turn-info flake); send-after-turn 500 fixed (#335, v0.61.1).
 
-**2026-11-22:** C157 terminal Select text / Copy moved out of the output: bottom bar on desktop, keys panel on a phone (#341, on main, ships in the next release); Cerea v0.61.2 released.
+**2026-11-22:** P35 quotas per provider or model (Pystino #74, with a MissingGreenlet fix for routed aliases #76) and P34 `/metrics` (#75) merged; the Cerea kit refuses `/metrics` at the proxy (#342). Pystino release after the live checks. C157 terminal Select text / Copy moved out of the output: bottom bar on desktop, keys panel on a phone (#341, on main, ships in the next release); Cerea v0.61.2 released.
 
 **2026-11-21:** C152 relayed coordination across a user's computers (ADR 0121, Cerea #331, ships in v0.61.0); C155 parallel tool-call join (#323, v0.60.5); P32/P33 (Pystino #73, 0.33.6); audio Opus/M4A (#324/#325); placeholders second pass (#327); mobile terminal copy (#330).
 
