@@ -79,7 +79,7 @@ Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G
 
 | ID | Title | Status | Next step |
 |---|---|---|---|
-| G18 | `galopin launch <tool>`: today only `launch opencode` exists; add Claude Code, Codex, pi, Mistral Vibe, goose, per-tool config, trust list (also answers C80) | Partly built | 2–3 days for the rest |
+| G18 | `galopin launch <tool>`: today only `launch opencode` exists; owner go 2026-11-23 for goose, Mistral Vibe and Claude Code (worker started); Codex, pi, per-tool config beyond these, trust list (also answers C80) still open | Partly built; goose/vibe/claude in progress | Review and merge |
 | C82 | ADR 0109 follow-ups: re-send Auto map to machines offline at save; optional admin caps | Open (verify) | |
 | C128 | galopin upgrade follow-ups (#238 re-review): pid re-scan, `/proc` scan with a space, saved `upgrade-*` cleanup, XDG vars, `was-running` marker | Low | Backlog |
 | C130 | opencode 2 follow-ups (#239 re-review): project-config + provider pair via re-enroll; `checkFloor` only at start; npm integrity for the CLI | Open | |
