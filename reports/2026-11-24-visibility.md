@@ -6,15 +6,15 @@ Starting point: Cerea 4 stars / 1 fork, Pystino 2 stars. Fundamentals fine (READ
 
 | Item | Status |
 |---|---|
-| README first screen (pitch, demo, 5-minute install, badges, "Why Cerea"), comparison table | Worker PR in progress (branch `docs/readme-first-screen`) |
-| Demo animation (~25 s, fake data via the docs-screenshots harness) + MP4 | Same PR |
-| Social preview 1280×640 | Same PR; owner uploads in Settings → General → Social preview (no API) |
+| README first screen (pitch, demo, 5-minute install, badges, "Why Cerea"), comparison table | **Done**: merged as #353 (2026-11-24) |
+| Demo animation (27 s, fake data via the docs-screenshots harness) + MP4 | **Done** in #353; re-record: docs/dev/ui-screenshots.md |
+| Social preview 1280×640 | In #353 (`docs/assets/social-preview.png`); owner uploads in Settings → General → Social preview (no API) |
 | Topics | Done 2026-11-24 (Cerea 17, Pystino 13) |
 | `good first issue` | #43 labelled |
 | Weekly "what's new" Discussion | Offered |
-| r/selfhosted, r/LocalLLaMA | Owner: new account → build some history first (1–2 weeks of genuine help), read sidebar rules (self-promotion days, AI-built disclosure — rules page not fetchable by tools), post with the demo, stay in the thread |
+| r/selfhosted, r/LocalLLaMA | Owner created the account 2026-11-24; **catch up ~late January 2027** (together with awesome-selfhosted): read sidebar rules (self-promotion days, AI-built disclosure), post with the demo, stay in the thread |
 | awesome-selfhosted | **Owner submits by hand** (rules: "done by a human, not a machine/LLM", ban otherwise). Eligible from **2027-02-02** (first GitHub release v0.2.0 on 2026-10-02; 4-month rule). PR per entry to awesome-selfhosted/awesome-selfhosted-data, file `software/<name>.yml`. Drafts below |
-| awesome-mcp-clients | Cerea qualifies (MCP client); PR can be opened by us after owner OK |
+| awesome-mcp-clients | **PR opened** 2026-11-24: punkpeye/awesome-mcp-clients#433 (fork paoloviviani/awesome-mcp-clients can be deleted after merge) |
 | awesome-llm-apps | Skip: no external submission path |
 | GitHub organisation for Cerea + Pystino | Owner decision (visibility change) |
 | One-click templates (Coolify, Dokploy, CasaOS, Umbrel, Unraid), Helm | Not started |
