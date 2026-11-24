@@ -39,7 +39,7 @@ Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G
 | C105 | /code dev-server previews through galopin, owner-only | Design after browser use ships |
 | C106 | web_fetch site allow/deny lists | Owner request 2026-11-12, not to be implemented yet |
 | C127 | Project context for coding agents (ADR 0118) | Parked, kept warm |
-| C123 | Conversation-scoped memory (PR [#236](https://github.com/paoloviviani/Cerea/pull/236) open) | Parked 2026-11-14; owner unsure chat memory is useful |
+| C123 | Conversation-scoped memory (PR [#236](https://github.com/paoloviviani/Cerea/pull/236)) | Closed by owner 2026-11-24; branch `feat/scoped-memory` kept |
 | C117 | Server sandboxes: PyPI installs in `execute_code` (wheels only, minimal egress proxy) | On hold by owner |
 | C133 | galopin: opt-in opencode Code Mode | Held by owner; blocked on opencode (no `execute` ask) |
 | C1 [#9](https://github.com/paoloviviani/Cerea/issues/9), C13 [#10](https://github.com/paoloviviani/Cerea/issues/10) | Kit: Dex in front of Authelia / Dex alone with break-glass | Parked (single-IdP decision; blocked on Pystino groups-from-claim) |
