@@ -80,6 +80,7 @@ Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G
 
 | ID | Title | Status | Next step |
 |---|---|---|---|
+| G19 | Mistral Vibe parity with opencode (owner go 2026-11-24; cheapest agent per task in the Artificial Analysis chart). Phase 1 (in progress, branch `feat/vibe-parity`): ACP investigation, AGENTS.md, compact, thinking effort, ask-the-user tool → question cards, queued mid-turn messages. Phase 2: per-session cost, workspace snapshots + file revert (all engines), subagent cards from delegation calls. Not closable without Vibe/ACP: conversation rewind, true mid-turn steering | Phase 1 in progress | Review and merge, then Phase 2 |
 | G18 | `galopin launch <tool>`: today only `launch opencode` exists; goose, Mistral Vibe and Claude Code shipped in Cerea v0.64.0 (#350, live 2026-11-23; per-launch proxy secret, whoami check, key-header stripping); Codex, pi, trust list (also answers C80) still open | Partly built | Codex/pi when wanted |
 | C82 | ADR 0109 follow-ups: re-send Auto map to machines offline at save; optional admin caps | Open (verify) | |
 | C128 | galopin upgrade follow-ups (#238 re-review): pid re-scan, `/proc` scan with a space, saved `upgrade-*` cleanup, XDG vars, `was-running` marker | Low | Backlog |
