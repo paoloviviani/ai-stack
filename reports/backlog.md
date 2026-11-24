@@ -10,7 +10,7 @@ Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G
 |---|---|---|---|
 | P31 | Classifier provider allowlist: classifiers may use only models of providers an admin ticks (empty by default), replacing PR #61's "Allow remote classifiers" switch; fail closed for a stored classifier on a provider no longer allowed | Parked on owner go; Pystino PR [#61](https://github.com/paoloviviani/Pystino/pull/61) open | Rework #61 when the owner says go |
 | C99 | Privacy-withheld files follow-ups: (a) vision-refused images withheld and (c) owner one-time download shipped in v0.60.0 (#304). Left: (b) no backfill for files stored before #193 | Backlog | Decide whether (b) is worth a migration |
-| C149 | Standing engine pin bumps: opencode 2.3.2 ([#289](https://github.com/paoloviviani/Cerea/issues/289)), goose 1.60.1 ([#288](https://github.com/paoloviviani/Cerea/issues/288)). Older bump issues (closed as superseded) [#258](https://github.com/paoloviviani/Cerea/issues/258), [#237](https://github.com/paoloviviani/Cerea/issues/237), [#199](https://github.com/paoloviviani/Cerea/issues/199), [#196](https://github.com/paoloviviani/Cerea/issues/196) are superseded by #288 | Pins on main: opencode 2.3.0, goose 1.57.0 | Bump both pins; close the superseded issues with the bump |
+| C149 | Standing engine pin bumps: opencode now 2.4.1 (v0.64.1, #354; #352 and #289 closed). goose: 1.60.1 ([#288](https://github.com/paoloviviani/Cerea/issues/288)) and 1.60.2 ([#322](https://github.com/paoloviviani/Cerea/issues/322)) pass the suite | Pins on main: opencode 2.4.1, goose 1.57.0 | Bump goose to 1.60.2, close #288 |
 | C148 | Secret manager plus credential injection at egress (write-only per-workspace/user secrets; the cloud-workspace egress proxy injects the real credential). Report `2026-11-18-mistral-secrets-knowledge.md` | Deferred to the owner; not started | Owner decision |
 | C150 [#270](https://github.com/paoloviviani/Cerea/issues/270) | Clone a Git repository when creating a new workspace | Open, no code on main | Schedule |
 
@@ -138,6 +138,8 @@ Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G
 ## 8. Done since 2026-11-06
 
 **2026-11-21 (evening):** C156 client-proposed message ids (#338, v0.61.2; also fixes reply panels closing by themselves and the C115 turn-info flake); send-after-turn 500 fixed (#335, v0.61.1).
+
+**2026-11-23/24:** Cerea v0.64.0 (galopin launch goose/vibe/claude, #350) and v0.64.1 (opencode 2.4.1, #354) released and live; README first screen + demo PR #353 awaiting owner review.
 
 **2026-11-22 (late):** Cerea v0.62.1 released and on the live stack: new-chat composer back at the bottom, phone logo fix (#344), links that point nowhere render as plain text (#346). C156 test flake found (test-only: settle() returned before the turn's final save), fix in #348. C159 Upgrade button (#345, galopin changed) released in Cerea v0.63.0 and on the live stack (2026-11-23 00:30 UTC); computers need one manual galopin update to start reporting the capability.
 
