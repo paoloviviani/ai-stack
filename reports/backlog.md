@@ -88,7 +88,7 @@ Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G
 | C128 | galopin upgrade follow-ups (#238 re-review): pid re-scan, `/proc` scan with a space, saved `upgrade-*` cleanup, XDG vars, `was-running` marker | Low | Backlog |
 | C130 | opencode 2 follow-ups (#239 re-review): project-config + provider pair via re-enroll; `checkFloor` only at start; npm integrity for the CLI | Open | |
 | C119 | Sandbox follow-ups (#231): warm pool, staging document-tool files, usage into quotas, shared lease map, rich outputs, start-up ordering | Backlog | |
-| C120 | Browser use phase 2a: live view and takeover (PR [#214](https://github.com/paoloviviani/Cerea/pull/214) open) | On hold by owner until the UX is settled | |
+| C120 | Browser use phase 2a: live view and takeover (PR [#214](https://github.com/paoloviviani/Cerea/pull/214), conflicting with main since ~11-24) | On hold by owner; proposal 2026-11-24 awaiting decision: live thumbnail in the browse card (streams only while visible) → full viewer with Take control/Hand back at any time; "Open here" on verification/sign-in cards and push (the core: solve it from a phone); "Open browser" → open on the computer or here (sign in to sites remotely); page snapshot on commit approval cards; video (2b) deferred. ~3–4 days incl. rebase | Owner decision |
 | G3 [#21](https://github.com/paoloviviani/Cerea/issues/21) | OS-level sandbox for agent commands | Not built; hosted sandboxes are C116 | Merge into C116 |
 | G12 [#24](https://github.com/paoloviviani/Cerea/issues/24) | Machines show offline after a server restart | Not investigated | Low |
 | G14 | `TMPDIR` inside the galopin tree | Still the case | Low |
