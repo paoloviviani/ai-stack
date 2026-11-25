@@ -12,8 +12,8 @@ Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G
 | C99 | Privacy-withheld files follow-ups: (a) vision-refused images withheld and (c) owner one-time download shipped in v0.60.0 (#304). Left: (b) no backfill for files stored before #193 | Backlog | Decide whether (b) is worth a migration |
 | C149 | Standing engine pin bumps: opencode now 2.4.1 (v0.64.1, #354; #352 and #289 closed). goose: 1.60.1 ([#288](https://github.com/paoloviviani/Cerea/issues/288)) and 1.60.2 ([#322](https://github.com/paoloviviani/Cerea/issues/322)) pass the suite | Pins on main: opencode 2.4.1, goose 1.57.0 | Bump goose to 1.60.2, close #288 |
 | C148 | Secret manager plus credential injection at egress (write-only per-workspace/user secrets; the cloud-workspace egress proxy injects the real credential). Report `2026-11-18-mistral-secrets-knowledge.md` | Deferred to the owner; not started | Owner decision |
-| C164 | Chat tool to OCR/extract a conversation file on demand (fetched, connector-returned or generated files are never extracted today; the model falls back to look_doc page images): same reader, privacy read rules and page cap as upload extraction, cached by file hash so never paid twice; look_doc stays for visual checks | Owner request 2026-11-25; in progress | Review, merge, release |
 | C165 [#44](https://github.com/paoloviviani/Cerea/issues/44) | MCP Apps (ui:// interactive tool UIs): owner go 2026-11-25 "full steam". Worker A (feat/mcp-apps): ADR + render + interactive bridge via the official ext-apps host + approvals + snapshot. Worker B (feat/mcp-apps-support): fake MCP Apps server from the official examples, galopin local-connector apps, per-connector admin switch, e2e + sandbox-escape tests | In progress | Review, merge (release held by owner) |
+| C166 | Flaky e2e `tests/chat-code-run-pause.spec.ts:16` ("a run paused in the background past the original deadline resumes…", expect toBeGreaterThan) failed once in #364 CI, passed on re-run (2026-11-25) | Confirmed flake | Fix at the cause after the next release |
 | C150 [#270](https://github.com/paoloviviani/Cerea/issues/270) | Clone a Git repository when creating a new workspace | Open, no code on main | Schedule |
 
 ## 1. Owner decisions and ideas
@@ -140,6 +140,8 @@ Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G
 ## 8. Done since 2026-11-06
 
 **2026-11-21 (evening):** C156 client-proposed message ids (#338, v0.61.2; also fixes reply panels closing by themselves and the C115 turn-info flake); send-after-turn 500 fixed (#335, v0.61.1).
+
+**2026-11-25:** merged, release held by owner: `doc_extract` (C164, #364: OCR a fetched/received file on demand, cached, page budget, privacy refusal withholds the file); landing page redesign in the app style (#366, Hugging Face named only in NOTICE); docs themes for Cerea and Pystino (#365, Pystino #77). MCP Apps in progress (C165).
 
 **2026-11-24 (night):** Cerea v0.65.0 released and live: Mistral Vibe parity phases 1–2 (G19, #356 #357), connectors in `galopin launch` + `galopin setup` as launch-by-default + run mode (G20, #361), phone terminal long-press (C158, #362). Live update briefly bound the side ports (~1 min outage, fixed).
 
