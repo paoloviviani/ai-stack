@@ -12,6 +12,7 @@ Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G
 | C99 | Privacy-withheld files follow-ups: (a) vision-refused images withheld and (c) owner one-time download shipped in v0.60.0 (#304). Left: (b) no backfill for files stored before #193 | Backlog | Decide whether (b) is worth a migration |
 | C149 | Standing engine pin bumps: opencode now 2.4.1 (v0.64.1, #354; #352 and #289 closed). goose: 1.60.1 ([#288](https://github.com/paoloviviani/Cerea/issues/288)) and 1.60.2 ([#322](https://github.com/paoloviviani/Cerea/issues/322)) pass the suite | Pins on main: opencode 2.4.1, goose 1.57.0 | Bump goose to 1.60.2, close #288 |
 | C148 | Secret manager plus credential injection at egress (write-only per-workspace/user secrets; the cloud-workspace egress proxy injects the real credential). Report `2026-11-18-mistral-secrets-knowledge.md` | Deferred to the owner; not started | Owner decision |
+| C164 | Chat tool to OCR/extract a conversation file on demand (fetched, connector-returned or generated files are never extracted today; the model falls back to look_doc page images): same reader, privacy read rules and page cap as upload extraction, cached by file hash so never paid twice; look_doc stays for visual checks | Owner request 2026-11-25; in progress | Review, merge, release |
 | C150 [#270](https://github.com/paoloviviani/Cerea/issues/270) | Clone a Git repository when creating a new workspace | Open, no code on main | Schedule |
 
 ## 1. Owner decisions and ideas
