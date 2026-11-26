@@ -14,6 +14,8 @@ Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G
 | C148 | Secret manager plus credential injection at egress (write-only per-workspace/user secrets; the cloud-workspace egress proxy injects the real credential). Report `2026-11-18-mistral-secrets-knowledge.md` | Deferred to the owner; not started | Owner decision |
 | C166 | Flaky e2e `tests/chat-code-run-pause.spec.ts:16` ("a run paused in the background past the original deadline resumes…", expect toBeGreaterThan) failed once in #364 CI, passed on re-run (2026-11-25) | Confirmed flake | Fix at the cause after the next release |
 | C170 | Flaky e2e `tests/code-machine-parity.spec.ts:929` ("opencode's own question tool becomes the SAME card as chat's ask_user_question"): 180 s click timeout, failed once each on #369 and #371 on 2026-11-26 (unrelated diffs), passed on re-run. Test-only flake, fix at the cause after the release | Open | — |
+| C171 | Flaky e2e `tests/mcp-apps.spec.ts:380` ("the app view shows with its run folded into a summary, and folding never reloads it"): the app iframe never appeared within 45 s; failed once on #378 (2026-11-26, branch does not touch MCP Apps), passed on re-run | Confirmed flake | Fix at the cause after the v0.67.0 release |
+| C172 | Desktop window browser follow-ups from the #378 delta review (all Low): write `cdp-endpoint-window` into the window browser's private dir instead of galopin's; the keep-alive refreshes only the caller's own lease; limit the window secret to `/cdp` | Backlog | Small PR after v0.67.0 |
 | C150 [#270](https://github.com/paoloviviani/Cerea/issues/270) | Clone a Git repository when creating a new workspace | Open, no code on main | Schedule |
 
 ## 1. Owner decisions and ideas
