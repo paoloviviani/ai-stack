@@ -52,9 +52,7 @@ decide package, used today by Ask's labels and by Auto):
    `git push origin $BRANCH`, `gh pr view $n` and `curl https://x/$id` run. This narrowing is
    written and tested on the local branch **`wip/env-blind-narrowing`** (Cerea repo, not pushed;
    in worktree `Cerea-wt-envallow` as of 2026-11-27).
-4. **Credential stores** (`~/.ssh`, `~/.aws`, gcloud, kube, `/proc/*/environ`): **open point**,
-   either a card when read (today's behaviour on Ask and Auto) or free to read like any file and a
-   card only when sent.
+4. **Credential stores** (`~/.ssh`, `~/.aws`, gcloud, kube, `/proc/*/environ`) are **free to read** like any file (owner, 2026-11-27); sending one off the computer is a card (rule 2).
 5. Everything else on outside access **runs**.
 
 ### Known limits (to state in the docs, as #388 already does)
@@ -81,12 +79,11 @@ decide package, used today by Ask's labels and by Auto):
   be derived from the threat model above. Lesson recorded: a review brief that counted reading an
   outside `.env` as High contradicted the model and cost two rounds.
 
-### Open points for the owner
+### Decided (owner, 2026-11-27)
 
-1. Credential stores under Secret rules: card on read, or free to read and card only when sent?
-2. Does Secret rules also apply its outgoing checks on the other rows (a command sending a `.env`
-   is a "commands" action, not "outside access"), or only when the outside-access row says so?
-3. The default for a new workspace: Reviewer (today) or Secret rules?
+1. Credential stores under Secret rules: **free to read**; a card only when sent.
+2. Secret rules applies its outgoing checks **only on the outside-access row** (only when that row is set to Secret rules).
+3. Open: the value the outside-access row starts with before a user ever changes it (today Reviewer); to confirm.
 
 ---
 
