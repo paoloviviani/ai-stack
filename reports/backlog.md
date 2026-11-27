@@ -55,6 +55,7 @@ Prefixes: P = Pystino, C = Cerea (including the galopin agent under `agent/`), G
 
 | ID | Title | Status | Next step |
 |---|---|---|---|
+| P37 | A Pystino provider type: serve a model from Pystino through Pystino (a gateway upstream of the gateway), instead of only OpenAI-compatible and Anthropic protocol types. Owner 2026-11-27 | Proposal | Owner to confirm the shape (chained gateways, cost/billing, privacy rules on both hops) |
 | P2 [#3](https://github.com/paoloviviani/Pystino/issues/3) | Decision models as a routing selection (only the metered kind shipped) | Open | Build on P1 or park |
 | P3 [#4](https://github.com/paoloviviani/Pystino/issues/4) | vLLM semantic-router spike | Open, no code | Long-term |
 | P8 [#8](https://github.com/paoloviviani/Pystino/issues/8) | Multi-tenancy (notes `2026-10-17-multi-tenancy-notes.md`) | Idea, no code | Owner to schedule |
