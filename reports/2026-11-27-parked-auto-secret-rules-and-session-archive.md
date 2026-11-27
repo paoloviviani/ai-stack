@@ -83,7 +83,7 @@ decide package, used today by Ask's labels and by Auto):
 
 1. Credential stores under Secret rules: **free to read**; a card only when sent.
 2. Secret rules applies its outgoing checks **only on the outside-access row** (only when that row is set to Secret rules).
-3. Open: the value the outside-access row starts with before a user ever changes it (today Reviewer); to confirm.
+3. The built-in starting value for a user who never saved Workspace → Agents (`PER_CLASS_DEFAULTS.outside` in `src/lib/types/AgentReview.ts`, today `reviewer`) becomes **Secret rules**. A user's saved choice always wins.
 
 ---
 
